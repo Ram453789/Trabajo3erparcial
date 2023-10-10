@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+
+    srand(time(NULL));
+    int NumeroAleatorio=rand();
+
+    int n,i,j,k;
+
+    printf("Nivel de la matriz: ");
+    scanf("%d", &n);
+
+
+    int matrizA[n][n];
+    int matrizB[n][n];
+
+    // Llenar las matrices con números aleatorios
+    for ( i = 0; i < n; i++) {
+        for ( j = 0; j < n; j++) {
+            matrizA[i][j] = NumeroAleatorio=rand()%(9-1+1)+0;;
+            matrizB[i][j] = NumeroAleatorio=rand()%(9-1+1)+0;; 
+        }
+    }
+
+   
+    printf("Matriz A:\n");
+    for ( i = 0; i < n; i++) {
+        for ( j = 0; j < n; j++) {
+            printf("%d ", matrizA[i][j]);
+        }
+        printf("\n");
+    }
+
+   
+    printf("Matriz B:\n");
+    for ( i = 0; i < n; i++) {
+        for ( j = 0; j < n; j++) {
+            printf("%d ", matrizB[i][j]);
+        }
+        printf("\n");
+    }
+    
+    int op,temporal, sumadiagonal=0;;
+    int matrizsuma[i][j],matrizresta[i][j];
+    
+    printf("Que operacion quieres realizar:");
+    scanf("%d",&op );
+    
+    
+    while(op>=1, op <=6){
+    	if(op==1){
+    		for ( i = 0; i < n; i++) {
+    			for ( j = 0; j < n; j++) {
+        		matrizsuma[i][j] = matrizA[i][j] + matrizB[i][j];
+    			}
+			}
+			printf("La suma de las matrices es: \n");
+			for ( i = 0; i < n; i++) {
+    			for ( j = 0; j < n; j++) {
+        		printf("%d ", matrizsuma[i][j]);
+    		}
+    		printf("\n");
+		}
+	
+    	}
+    	else if(op==2){
+    		for ( i = 0; i < n; i++) {
+    			for ( j = 0; j < n; j++) {
+        		matrizresta[i][j] = matrizA[i][j] - matrizB[i][j];
+				}
+			}
+			
+			printf("La resta de las matrices es: \n");
+			for ( i = 0; i < n; i++) {
+    			for ( j = 0; j < n; j++) {
+        		printf("%d ", matrizresta[i][j]);
+    		}
+    		printf("\n");
+		}
+
+    	}
+    	
+		else if(op==3){
+        	for ( i = 0; i < n; i++) {
+        	sumadiagonal += matrizA[i][i];
+    		}
+    		printf("La suma de la diagonal de la matriz A es: %d\n", sumadiagonal);
+		}
+		else if(op==4){
+			printf("Programa terminado");
+		}		
+    	op++;
+	}
+    return 0;
+}
